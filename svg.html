@@ -3,12 +3,43 @@ layout: default
 ---
 
 <svg width="1400px" height="600px">
-  <circle cx="100px" cy="200px" r="130px" fill="black" />
-  <circle cx="100px" cy="200px" r="115px" fill="white" />
+  <rect width = "1000px" height= "600px" fill="yellow" />
+  <circle cx="100px" cy="200px" r="125px" fill="black" />
+  <circle cx="100px" cy="200px" r="117px" fill="white" />
   <circle cx="100px" cy="200px" r="100px" fill="black" />
-  <circle cx="100px" cy="200px" r="50px" fill="blue" />
-  <circle cx="100px" cy="200px" r="45px" fill="black" />
+  <circle cx="100px" cy="200px" r="60px" fill="blue" />
+  <circle cx="100px" cy="200px" r="53px" fill="black" />
   <circle cx="100px" cy="200px" r="40px" fill="blue" />
   <circle cx="100px" cy="200px" r="35px" fill="black" />
 
+
+
 </svg>
+<style>
+.container {
+    position: relative;
+}
+
+.topleft {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 18px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    opacity: 0.9;
+}
+</style>
+</head>
+<body>
+
+<h2>Image Text</h2>
+<p>Add some text to an image in the top left corner:</p>
+
+<div class="container">
+  <img src="kandinsky.jpg" alt="Can i disky" width="648" height="255">
+</body>
+</html>
