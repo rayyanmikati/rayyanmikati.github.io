@@ -1,0 +1,22 @@
+---
+---
+$neu: #cc0000;
+$nav-height: 50px;
+
+p{
+  color:$neu;
+  font-size: 25px;
+  font-family: "Garamond";
+  margin-top: $nav-height + 15px;
+}
+h1{
+  color:lightblue;
+  font-size: 30px;
+  font-family: "Garamond";
+}
+p.one {
+  color:green;
+}
+.bluedot {
+  fill: rgba(0,200,180,0.5)
+}
