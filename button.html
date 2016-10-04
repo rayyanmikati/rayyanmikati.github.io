@@ -2,16 +2,10 @@
 layout: default
 ---
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Button</title>
-  </head>
   <body>
-          <button class ="btn" id="btn-test1">On</button>
-          <button class ="btn" id="btn-test2">Off</button>
-          <button class ="btn" id="btn-test3">Reset</button>
+          <button id="btn-test1">On</button>
+          <button id="btn-test2">Off</button>
+          <button id="btn-test3">Reset</button>
 
 
 
@@ -22,9 +16,8 @@ layout: default
   <circle id="Circle-1" cx="130px" cy="200px" r="63px" fill="#FFFFFF" />
 </svg>
 
-</div>
-
 <script>
+
   $('#btn-test1').on("click", function() {
     $('#Circle-1').css({ fill: "#D577CF" });
     });
