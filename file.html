@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<script>
+
+  var draw = function(file) {//helps prep the page. this is where you would put a loading screen
+  };
+
+  d3.json("jsondata.json", function(error, file) {
+    draw(file);
+    console.log(error, file);
+  });
+
+  console.log("first");
+
+</script>

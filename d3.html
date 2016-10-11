@@ -2,30 +2,73 @@
 layout: default
 ---
 
+
+
 <svg></svg>
 
 
 <script>
+//RANDOM DATA//
+  var randomData = function () {
+    var randomArray = []; //empty array
+    var num = Math.ceil(Math.random() * 8); //chooses n, will be up to 5 (and rounded up), stored in var num
+    console.log("num", num); //prints num in console
+    for (var i = 0; i < num; i++) { //i starts
+      randomArray.push(Math.random() * 50)
+    }
+    return randomArray;
+  }
 
-  var data = [25, 23, 54, 34, 16];
+//remember: ENTER, UPDATE, EXIT//
 
-  var svg = d3.select("body").append("svg")
-    .attr("width", 1000)
-    .attr("height", 400);
+  var arr = [25, 23, 54, 34, 16];
 
-  var circles = svg.selectAll("circle")
-    .data(data);
+    var svg = d3.select("body").append("svg")
+          .attr("width", 1000)
+          .attr("height", 400);
 
+
+    var draw = function() {
+        var data = randomData();//defining the variable data
+          console.log(data);
+        var circles = svg.selectAll("circle")//makes the circles respond to the veriable data
+          .data(data);
+
+//enter
     circles.enter()
       .append("circle")
-      .attr("cx", function(d, i) {
-        return 60 + (120 * i);
-      })
-      .attr("cy", 60)
-      .attr("r", function (d) {
-        return d;
-      });
+      .transition()
+      .duration(1000)
+        .attr("fill", "steelblue")
+        .attr("cx", function(d, i) { return 60 + (120 * i);
+              })
+        .attr("cy", 60)
+        .attr("r", function (d) {
+          return d;
+              });
 
+//update
+        circles
+          .transition()
+          .duration(1000)
+              .attr("fill", "hotpink")
+          .transition()//anything after this will transition
+          .duration(1000) //time is in milliseconds, so multiply by 1000 for seconds
+              .attr("r", function (d) {
+                return d;
 
+          });
+
+//exit
+        circles.exit()
+          .transition()
+          .duration(1000)
+            .attr("r", 0)
+            .attr("fill", "red")
+        .remove();
+
+      }
+
+  draw(arr);
 
 </script>
