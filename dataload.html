@@ -1,0 +1,64 @@
+---
+layout: default
+---
+<svg width=3000 height=7000></svg>
+
+<script>
+var draw = function(data) {
+
+    var svg = d3.select("svg");
+
+    var circles = svg.selectAll("circle").data(data);
+
+
+    var dataExtent = d3.extent(data, function(d, i) {
+        return d.values.length;
+      });
+
+        console.log(dataExtent);
+
+
+    var radius = d3.scaleLinear()
+      .domain(dataExtent)
+      .range([5, 50]);
+
+
+    circles.enter().append("circle")
+    .transition()
+    .duration(1000)
+      .attr("fill", "hotpink")
+
+      .attr("cy", function(d, i) {
+        return 200 + (100 * Math.floor(i/10))
+      })
+      .attr("cx", function(d, i) {
+        return 60 + (120 * (i % 10))
+      })
+      .attr("r", function(d, i) {
+        return radius(d.values.length)
+      });
+
+    };
+
+  d3.csv("Minneso.csv", function(error, data) {
+
+  data = data.filter(function(d, i) {
+    return d.Year == 1967;
+  });
+
+  var nestedData = d3.nest()
+    .key(function(d, i) {
+      return d.Aou
+    })
+    .entries(data);
+
+  nestedData = nestedData.filter(function(d, i) {
+    return d.key != "";
+  });
+  console.log(nestedData);
+
+
+draw(nestedData);
+});
+
+</script>
