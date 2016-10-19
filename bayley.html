@@ -1,0 +1,91 @@
+---
+layout: default
+---
+<svg width=600 height=600></svg>
+
+<label for="Slider">Year</label>
+<input type="range" id="slider">
+<input type="text" id="textbox"/>
+
+<script>
+
+//global variable:
+  var years = [];
+
+
+
+  var draw = function(data, year) {
+
+    var afg = data[0];
+
+    var values = years.map(function(y) {
+      return afg[ y + " [YR" + y + "]"];
+        });
+
+    var radius = d3.scaleLinear()
+      .domain(d3.extent(values))
+      .range([10, window.innerWidth / 2 - 10]);
+
+    var svg = d3.select("svg");
+    var circle = svg.selectAll("circle")
+      .data([afg]);
+
+    var enter = circle.enter().append("circle");
+    circle.merge(enter)
+      .attr("cx", 300)
+      .attr("cy", 300)
+      .transition().duration(500)
+      .attr("fill", function(d) {
+        var num = afg[year + " [YR" + year + "]" ];
+        if (isNaN(parseFloat(num))) {
+        return "#CCCCCC";
+      }
+      return "green";
+      })
+      .attr("r", function(d) {
+        var num = afg[year + " [YR" + year + "]" ];
+        if (isNaN(parseFloat(num))){
+        return 30;
+      }
+      return radius(num);
+    });
+
+    console.log(d3.extent(values));
+    console.log(year, afg[year + " [YR" + year + "]" ]);
+  };
+
+  d3.csv("greenhouse.csv", function(error, data) {
+
+
+    data.forEach(function (d, i) {
+      for (var key in d) {
+
+        var num = parseFloat(d[key]);
+        if (!isNaN(num)) {
+          d[key] = num
+        }
+      }
+    });
+
+    for (var key in data[0]) {
+      var num = parseFloat(key.split(" ")[0]);
+      if (!isNaN(num)) {
+        years.push(num)
+      }
+
+      var defaultvalue = d3.min(years);
+
+      d3.select("#slider")
+        .attr("min", d3.min(years))
+        .attr("max", d3.max(years))
+        .attr("min", defaultvalue)
+        .on("input", function() {
+          d3.select("#textbox").node().value = this.value;
+          draw(data, this.value);
+        });
+
+    draw(data, defaultvalue);
+    }
+  });
+
+  </script>

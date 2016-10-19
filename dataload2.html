@@ -43,12 +43,12 @@ var draw = function(data) {
   d3.csv("Minneso.csv", function(error, data) {
 
   data = data.filter(function(d, i) {
-    return d.Aou == 4230;
+    return d.Aou == 1810;
   });
 
   var nestedData = d3.nest()
     .key(function(d, i) {
-      return d.SpeciesTotal
+      return d.Year;
     })
     .entries(data);
 
