@@ -24,7 +24,16 @@ layout: default
 d3.csv("Minneso.csv", function(error, data) {
   data.forEach(function(d) {
     d.SpeciesTotal = +d.SpeciesTotal;
+    d.Aou = "Aou";
+    d.SpeciesTotal = "SpeciesTotal";
+    d.Year = "Year";
+    d.statenum = "statenum"
   });
+d3.selectAll("div").data("d.Aou");
+d3.selectAll("div").data("Year");
+d3.selectAll("div").data("SpeciesTotal")
+d3.selectAll("div").data("statenum")
+
 
 
 console.log(data);
