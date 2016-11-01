@@ -1,22 +1,48 @@
 ---
 ---
-$neu: #cc0000;
+$bg: #0A0A23;
 $nav-height: 50px;
+$main: #e6e6ff;
+$blue: #01DCC1;
+$accent: #FF239E;
 
+body {
+  background-color: $bg;
+}
 p{
-  color:$neu;
+  color:$main;
   font-size: 25px;
-  font-family: "Garamond";
+  font-family: "Helvetica";
   margin-top: $nav-height + 15px;
+  font-weight: 100;
 }
 h1{
-  color:lightblue;
-  font-size: 30px;
-  font-family: "Garamond";
+  color:$main;
+  font-size: 35px;
+  font-family: "Helvetica";
+  font-weight: 100;
 }
-p.one {
-  color:green;
+h2{
+  color:$accent;
+  font-size: 35px;
+  font-family: "Helvetica";
+  font-weight: bold;
 }
-.bluedot {
-  fill: rgba(0,200,180,0.5)
+h3{
+  color:$blue;
+  font-size: 35px;
+  font-family: "Helvetica";
+  font-weight: 100;
+}
+#p01 {
+  color:$accent;
+  font-size: 25px;
+  font-family: "Helvetica";
+  font-weight: 100;
+}
+#p02 {
+  color:$blue;
+  font-size: 25px;
+  font-family: "Helvetica";
+  font-weight: 100;
 }

@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<body>
+  <h1>
+    text test </h1>
+    <br>
+  <h2>
+    text test </h2>
+    <br>
+  <h3>
+    text test </h3>
+    <br>
+  <p>
+    text test </p>
+     <br>
+  <p id="p02">
+    text test </p>
+    <br>
+  <p id="p01">
+    text test </p>
+
+<script>
+d3.csv("Minneso.csv", function(error, data) {
+  data.forEach(function(d) {
+    d.SpeciesTotal = +d.SpeciesTotal;
+  });
+
+
+console.log(data);
+
+
+
+})
+
+</script>
+</body>
