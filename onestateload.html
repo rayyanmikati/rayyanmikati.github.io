@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<body>
+
   <h1>
     text test </h1>
     <br>
@@ -21,20 +21,46 @@ layout: default
     text test </p>
 
 <script>
-d3.csv("Minneso.csv", function(error, data) {
-  data.forEach(function(d) {
-    d.SpeciesTotal = +d.SpeciesTotal;
-  
-  });
+d3.queue()//I decided to use the var because it got rid of an error I was having
+    .defer(d3.csv, "SpeciesList.csv")
+    .defer(d3.csv, "alabama.csv")
+    .defer(d3.csv, "Alaska.csv")
+    .defer(d3.csv, "Minneso.csv")
 
+    // .defer, d3.csv("arkansas.csv");
+///.defer(d3.request, "http://www.google.com:81")
+    .awaitAll(function(error, results) {
+      if (error) throw error;
+      console.log(results);
+    });
 
+    // q.awaitAll(function(error, data) {
+    //   if (error) throw error;
+    //   console.log(data);
+    // });
+// d3.csv("Minneso.csv", function(error, data) {
+//   data.forEach(function(d) {
+//     d.SpeciesTotal = +d.SpeciesTotal;
+//     d.Year = +d.Year;
+//   });
+//
+//   data = data.filter(function(d, i) {
+//     return d.Year >= 1980;
+//   });
+//
+//   var nestedData = d3.nest()
+//     .key(function(d, i) {
+//       return d.Year;
+//     })
+//     .entries(data);
+//   nestedData.forEach(function(d) {
+//     d.SpeciesTotal = d3.sum(d.values, function(x, i) {
+//       return x.SpeciesTotal;
+//     })
+//     console.log(d.key, d.SpeciesTotal)
+//   })
+//
+// });
 
-
-console.log(data);
-
-
-
-})
 
 </script>
-</body>
