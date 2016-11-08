@@ -80,7 +80,30 @@ d3.queue()//No data for Hawaii
     .awaitAll(function(error, results) {
       if (error) throw error;
       console.log(results);
-    });
+    results.forEach(function(data, i) {
+      if (i != 0) {
+        data.forEach(function(d) {
+          d.SpeciesTotal = +d.SpeciesTotal;
+          d.Year = +d.Year;
+        })}
+
+        results = data.filter(function(d, i) {
+          return d.Year >= 1980;
+        });
+
+        var nestedYear = d3.nest()
+            .key(function(d, i) {
+              return d.Year;
+            })
+            .entries(results);
+          nestedYear.forEach(function(d) {
+            d.SpeciesTotal = d3.sum(d.values, function(x, i) {
+              return x.SpeciesTotal;
+            })
+            console.log(d.key, d.SpeciesTotal)
+          })
+});
+});
 
     // q.awaitAll(function(error, data) {
     //   if (error) throw error;
