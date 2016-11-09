@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<style>
+  #label {
+
+  }
+
+</style>
+<svg width=600 height=600></svg>
+<script>
+
+var data = [
+  {name: "Dave", size: 12},
+  {name: "Hillary", size: 16}
+];
+
+var svg = d3.selevt("svg");
+
+var circles = svg.selectAll("circle")
+  .data(data);
+
+var enterCircles = circles.enter().append("circle")
+  .attr("fill", "blue")
+  .attr("cx", function(d, i) {return 60 + (120 * i); })
+  .attr("cy", 60)
+  .attr("r", 0);
+
+circles
+  .merge(enterCircles)
+  .on("mousemove", function(d) {
+    d3.select("#label").style("display", "none");
+    })
+  .transition().duration(500)
+    .attr("fill", "blue")
+  .transition
