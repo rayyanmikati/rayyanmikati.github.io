@@ -10,6 +10,11 @@ layout: default
 // path:hover {
 //   fill-opacity: .7;
 // }
+
+var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
   var width = 900, height = 500;
 
   var svg = d3.select("svg")
@@ -42,14 +47,30 @@ layout: default
     // country codes: https://en.wikipedia.org/wiki/ISO_3166-1_numeric
     states.enter().append("path")
       .attr("d", path)
-      .attr("stroke", "#888")
+      .attr("stroke", "#e6e6ff")
       .attr("stroke-width", 1)
       .attr("fill", "#01DCC1")
+      .on("mouseover", function(d) {
+            div.transition()
+                .duration(200)
+                .style("opacity", .9);
+            div.text(d.SpeciesTotal)
+            .style("left", (d3.event.pageX) + "px")
+            .style("top", (d3.event.pageY - 28) + "px");
+            // div .html(formatTime(d.date) + "<br/>"  + d.close)
+            //     .style("left", (d3.event.pageX) + "px")
+            //     .style("top", (d3.event.pageY - 28) + "px");
+            })
+        .on("mouseout", function(d) {
+            div.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
       //   function(d){
       //   return d.id == "076" ? "green" : "#ccc";
       // }
       // )
-    ;
+
 
     // coordinate points are reversed! ex. [longitude, latitude]
     // var points = [
@@ -208,88 +229,6 @@ d3.queue()//No data for Hawaii
 });
 
 });
-
-
-
-///ATTEMPT #1
-  // var results = x.SpeciesTotal
-  // var svg = d3.select("body").append("svg")
-  //       .attr("width", 1000)
-  //       .attr("height", 10000);
-  //
-  // var draw = function() {
-  //     var results = x.SpeciesTotal;//defining the variable data
-  //     var circles = svg.selectAll("circle")//makes the circles respond to the veriable data
-  //       .data(results);
-  //
-  //   //enter
-  //   circles.enter()
-  //     .append("circle")
-  //     .transition()
-  //     .duration(1000)
-  //       .attr("fill", "pink")
-  //       .attr("cx", function(d, i) { return 60 + (120 * i);
-  //             })
-  //       .attr("cy", 60)
-  //       .attr("r", function (d) {
-  //         return d;
-  //             });
-  // draw(results);
-  //
-  //         }
-
-
-//OTHER SHIT
-    // q.awaitAll(function(error, data) {
-    //   if (error) throw error;
-    //   console.log(data);
-    // });
-// d3.csv("Minneso.csv", function(error, data) {
-//   data.forEach(function(d) {
-//     d.SpeciesTotal = +d.SpeciesTotal;
-//     d.Year = +d.Year;
-//   });
-//
-//   data = data.filter(function(d, i) {
-//     return d.Year >= 1980;
-//   });
-//
-//   var nestedData = d3.nest()
-//     .key(function(d, i) {
-//       return d.Year;
-//     })
-//     .entries(data);
-//   nestedData.forEach(function(d) {
-//     d.SpeciesTotal = d3.sum(d.values, function(x, i) {
-//       return x.SpeciesTotal;
-//     })
-//     console.log(d.key, d.SpeciesTotal)
-//   })
-//
-// });
-
-//      THIS IS JUST SOME JUNK FOR ME TO REFERENCE WHEN I ADD CIRCLES
-// var svg = d3.select("body").append("svg")
-//       .attr("width", 1000)
-//       .attr("height", 400);
-// var draw = function() {
-//     var data = randomData();//defining the variable data
-//       console.log(data);
-//     var circles = svg.selectAll("circle")//makes the circles respond to the veriable data
-//       .data(data);
-//
-// //enter
-// circles.enter()
-//   .append("circle")
-//   .transition()
-//   .duration(1000)
-//     .attr("fill", "steelblue")
-//     .attr("cx", function(d, i) { return 60 + (120 * i);
-//           })
-//     .attr("cy", 60)
-//     .attr("r", function (d) {
-//       return d;
-//           });
 
 
 </script>
