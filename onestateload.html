@@ -7,6 +7,9 @@ layout: default
 <script src="https://d3js.org/topojson.v2.min.js"></script>
 <script>
 
+// path:hover {
+//   fill-opacity: .7;
+// }
   var width = 900, height = 500;
 
   var svg = d3.select("svg")
@@ -41,24 +44,27 @@ layout: default
       .attr("d", path)
       .attr("stroke", "#888")
       .attr("stroke-width", 1)
-      .attr("fill", function(d){
-        return d.id == "076" ? "green" : "#ccc";
-      });
+      .attr("fill", "#01DCC1")
+      //   function(d){
+      //   return d.id == "076" ? "green" : "#ccc";
+      // }
+      // )
+    ;
 
     // coordinate points are reversed! ex. [longitude, latitude]
-    var points = [
-      {"name": "Boston", "coords": [-71.0589, 42.3601]},
-    ];
+    // var points = [
+    //   {"name": "Boston", "coords": [-71.0589, 42.3601]},
+    // ];
 
-    var points = svg.selectAll("circle")
-      .data(points);
-
-    points.enter().append("circle")
-      .attr("transform", function(d){
-        return "translate(" + proj(d.coords) + ")";
-      })
-      .attr("fill", "red")
-      .attr("r", 10);
+    // var points = svg.selectAll("circle")
+    //   .data(points);
+    //
+    // points.enter().append("circle")
+    //   .attr("transform", function(d){
+    //     return "translate(" + proj(d.coords) + ")";
+    //   })
+    //   .attr("fill", "red")
+    //   .attr("r", 10);
 
   });
 
@@ -132,57 +138,58 @@ d3.queue()//No data for Hawaii
 
         results = data.filter(function(d, i) {
           return d.Aou = "1770";
+
         });
-        // var nestedState = d3.nest()
-        //     .key(function(d, i) {
-        //       return d.statenum;
-        //     })
-        //     .entries(results);
-        //   nestedState.forEach(function(d) {
-        //     d.SpeciesTotal = d3.sum(d.values, function(x, i){
-        //       return x.SpeciesTotal;
-        //     })
-        //     console.log(d.key, d.SpeciesTotal)
-        //     })
-        var svg = d3.select("body").append("svg")
-              .attr("width", 1500)
-              .attr("height", 1000);
+        var nestedState = d3.nest()
+            .key(function(d, i) {
+              return d.statenum;
+            })
+            .entries(results);
+          nestedState.forEach(function(d) {
+            d.SpeciesTotal = d3.sum(d.values, function(x, i){
+              return x.SpeciesTotal;
+            })
+            console.log(d.key, d.SpeciesTotal)
+            })
+        // var svg = d3.select("body").append("svg")
+        //       .attr("width", 1500)
+        //       .attr("height", 1000);
 
-        var draw = function(results) {
-
-            var svg = d3.select("svg");
-
-            var circles = svg.selectAll("circle").data(results);
-
-
-            var dataExtent = d3.extent(results, function(d, i) {
-                return d.SpeciesTotal;
-              });
-
-                console.log(dataExtent);
-
-
-            var radius = d3.scaleLinear()
-              .domain(dataExtent)
-              .range([5, 50]);
-
-
-            circles.enter().append("circle")
-            .transition()
-            .duration(2000)
-              .attr("fill", "#FF239E")
-
-              .attr("cy", function(d, i) {
-                return 200 + (100 * Math.floor(i/10))
-              })
-              .attr("cx", function(d, i) {
-                return 60 + (120 * (i % 10))
-              })
-              .attr("r", function(d, i) {
-                return radius(d.SpeciesTotal)
-              });
-
-            };
+        // var draw = function(results) {
+        //
+        //     var svg = d3.select("svg");
+        //
+        //     var circles = svg.selectAll("circle").data(results);
+        //
+        //
+        //     var dataExtent = d3.extent(results, function(d, i) {
+        //         return d.SpeciesTotal;
+        //       });
+        //
+        //         console.log(dataExtent);
+        //
+        //
+        //     var radius = d3.scaleLinear()
+        //       .domain(dataExtent)
+        //       .range([5, 50]);
+        //
+        //
+        //     circles.enter().append("circle")
+        //     .transition()
+        //     .duration(2000)
+        //       .attr("fill", "#FF239E")
+        //
+        //       .attr("cy", function(d, i) {
+        //         return 200 + (100 * Math.floor(i/10))
+        //       })
+        //       .attr("cx", function(d, i) {
+        //         return 60 + (120 * (i % 10))
+        //       })
+        //       .attr("r", function(d, i) {
+        //         return radius(d.SpeciesTotal)
+        //       });
+        //
+        //     };
 
         var nestedYear = d3.nest()
             .key(function(d, i) {
@@ -196,7 +203,7 @@ d3.queue()//No data for Hawaii
             })
             console.log(d.key, d.SpeciesTotal)
           })
-          draw(nestedYear);
+          // draw(nestedYear);
 
 });
 
