@@ -50,7 +50,7 @@ var div = d3.select("body").append("div")
       .attr("stroke", "#e6e6ff")
       .attr("stroke-width", 1)
       .attr("fill", "#01DCC1")
-      .on("mouseover", function(d) {
+      .on("mousemove", function(d) {
             div.transition()
                 .duration(200)
                 .style("opacity", .9);
