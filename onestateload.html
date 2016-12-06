@@ -10,6 +10,10 @@ layout: default
   <h4><span class="number"></span></h4>
 </div>
 
+<div class="popup">
+  <h4 class="Title"></h4>
+  <p><span class="fulldata"></span></p>
+</div>
 
   <svg></svg>
 
@@ -22,6 +26,8 @@ layout: default
 var stateData = {};
 
 var div = d3.select(".tooltip")
+
+var pop = d3.select(".popup")
 
 
   var width = 900, height = 500;
@@ -296,6 +302,11 @@ d3.queue()//No data for Hawaii
             var stateNum = path2name[d.id];
             var data = stateData[stateNum];
             var Title = path2title[d.id];
+          pop
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY - 28) + "px");
+        div.select(".Title").text(Title);
+        div.select(".fulldata").text(data);
 
         })
       ;
