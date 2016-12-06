@@ -138,110 +138,110 @@ var div = d3.select(".tooltip")
     "04000US28":"51",
     "04000US34":"59"
   };
-var files = {
-  "(d3.csv, "alabama.csv")",
-  "(d3.csv, "Alaska.csv")",
-  "(d3.csv, "arizona.csv")",
-  "(d3.csv, "arkansas.csv")",
-  "(d3.csv, "california.csv")",
-  "(d3.csv, "colorado.csv")",
-  "(d3.csv, "connecticut.csv")",
-  "(d3.csv, "delaware.csv")",
-  "(d3.csv, "florida.csv")",
-  "(d3.csv, "georgia.csv")",
-  "(d3.csv, "idaho.csv")",
-  "(d3.csv, "illinois.csv")",
-  "(d3.csv, "indiana.csv")",
-  "(d3.csv, "iowa.csv")",
-  "(d3.csv, "kansas.csv")",
-  "(d3.csv, "kentucky.csv")",
-  "(d3.csv, "louisiana.csv")",
-  "(d3.csv, "maine.csv")",
-  "(d3.csv, "maryland.csv")",
-  "(d3.csv, "massachusetts.csv")",
-  "(d3.csv, "michigan.csv")",
-  "(d3.csv, "Minneso.csv")",
-  "(d3.csv, "mississippi.csv")",
-  "(d3.csv, "missouri.csv")",
-  "(d3.csv, "montana.csv")",
-  "(d3.csv, "nebraska.csv")",
-  "(d3.csv, "nevada.csv")",
-  "(d3.csv, "newhampshire.csv")",
-  "(d3.csv, "newjersey.csv")",
-  "(d3.csv, "newmexico.csv")",
-  "(d3.csv, "newyork.csv")",
-  "(d3.csv, "northcarolina.csv")",
-  "(d3.csv, "northdakota.csv")",
-  "(d3.csv, "ohio.csv")",
-  "(d3.csv, "oklahoma.csv")",
-  "(d3.csv, "oregon.csv")",
-  "(d3.csv, "pennsylvania.csv")",
-  "(d3.csv, "rhodeisland.csv")",
-  "(d3.csv, "southcarolina.csv")",
-  "(d3.csv, "southdakota.csv")",
-  "(d3.csv, "tennessee.csv")",
-  "(d3.csv, "texas.csv")",
-  "(d3.csv, "utah.csv")",
-  "(d3.csv, "vermont.csv")",
-  "(d3.csv, "virginia.csv")",
-  "(d3.csv, "washington.csv")",
-  "(d3.csv, "westvirginia.csv")",
-  "(d3.csv, "wisconsin.csv")",
-  "(d3.csv, "wyoming.csv")",
-}
+// var files = {
+//   "(d3.csv, "alabama.csv")",
+//   "(d3.csv, "Alaska.csv")",
+//   "(d3.csv, "arizona.csv")",
+//   "(d3.csv, "arkansas.csv")",
+//   "(d3.csv, "california.csv")",
+//   "(d3.csv, "colorado.csv")",
+//   "(d3.csv, "connecticut.csv")",
+//   "(d3.csv, "delaware.csv")",
+//   "(d3.csv, "florida.csv")",
+//   "(d3.csv, "georgia.csv")",
+//   "(d3.csv, "idaho.csv")",
+//   "(d3.csv, "illinois.csv")",
+//   "(d3.csv, "indiana.csv")",
+//   "(d3.csv, "iowa.csv")",
+//   "(d3.csv, "kansas.csv")",
+//   "(d3.csv, "kentucky.csv")",
+//   "(d3.csv, "louisiana.csv")",
+//   "(d3.csv, "maine.csv")",
+//   "(d3.csv, "maryland.csv")",
+//   "(d3.csv, "massachusetts.csv")",
+//   "(d3.csv, "michigan.csv")",
+//   "(d3.csv, "Minneso.csv")",
+//   "(d3.csv, "mississippi.csv")",
+//   "(d3.csv, "missouri.csv")",
+//   "(d3.csv, "montana.csv")",
+//   "(d3.csv, "nebraska.csv")",
+//   "(d3.csv, "nevada.csv")",
+//   "(d3.csv, "newhampshire.csv")",
+//   "(d3.csv, "newjersey.csv")",
+//   "(d3.csv, "newmexico.csv")",
+//   "(d3.csv, "newyork.csv")",
+//   "(d3.csv, "northcarolina.csv")",
+//   "(d3.csv, "northdakota.csv")",
+//   "(d3.csv, "ohio.csv")",
+//   "(d3.csv, "oklahoma.csv")",
+//   "(d3.csv, "oregon.csv")",
+//   "(d3.csv, "pennsylvania.csv")",
+//   "(d3.csv, "rhodeisland.csv")",
+//   "(d3.csv, "southcarolina.csv")",
+//   "(d3.csv, "southdakota.csv")",
+//   "(d3.csv, "tennessee.csv")",
+//   "(d3.csv, "texas.csv")",
+//   "(d3.csv, "utah.csv")",
+//   "(d3.csv, "vermont.csv")",
+//   "(d3.csv, "virginia.csv")",
+//   "(d3.csv, "washington.csv")",
+//   "(d3.csv, "westvirginia.csv")",
+//   "(d3.csv, "wisconsin.csv")",
+//   "(d3.csv, "wyoming.csv")",
+// }
 
 
 d3.queue()//No data for Hawaii
-    "(d3.csv, "SpeciesList.csv")
-    "(d3.csv, "alabama.csv")
-    "(d3.csv, "Alaska.csv")
-    "(d3.csv, "arizona.csv")
-    "(d3.csv, "arkansas.csv")
-    "(d3.csv, "california.csv")
-    "(d3.csv, "colorado.csv")
-    "(d3.csv, "connecticut.csv")
-    "(d3.csv, "delaware.csv")
-    "(d3.csv, "florida.csv")
-    "(d3.csv, "georgia.csv")
-    "(d3.csv, "idaho.csv")
-    "(d3.csv, "illinois.csv")
-    "(d3.csv, "indiana.csv")
-    "(d3.csv, "iowa.csv")
-    "(d3.csv, "kansas.csv")
-    "(d3.csv, "kentucky.csv")
-    "(d3.csv, "louisiana.csv")
-    "(d3.csv, "maine.csv")
-    "(d3.csv, "maryland.csv")
-    "(d3.csv, "massachusetts.csv")
-    "(d3.csv, "michigan.csv")
-    "(d3.csv, "Minneso.csv")
-    "(d3.csv, "mississippi.csv")
-    "(d3.csv, "missouri.csv")
-    "(d3.csv, "montana.csv")
-    "(d3.csv, "nebraska.csv")
-    "(d3.csv, "nevada.csv")
-    "(d3.csv, "newhampshire.csv")
-    "(d3.csv, "newjersey.csv")
-    "(d3.csv, "newmexico.csv")
-    "(d3.csv, "newyork.csv")
-    "(d3.csv, "northcarolina.csv")
-    "(d3.csv, "northdakota.csv")
-    "(d3.csv, "ohio.csv")
-    "(d3.csv, "oklahoma.csv")
-    "(d3.csv, "oregon.csv")
-    "(d3.csv, "pennsylvania.csv")
-    "(d3.csv, "rhodeisland.csv")
-    "(d3.csv, "southcarolina.csv")
-    "(d3.csv, "southdakota.csv")
-    "(d3.csv, "tennessee.csv")
-    "(d3.csv, "texas.csv")
-    "(d3.csv, "utah.csv")
-    "(d3.csv, "vermont.csv")
-    "(d3.csv, "virginia.csv")
-    "(d3.csv, "washington.csv")
-    "(d3.csv, "westvirginia.csv")
-    "(d3.csv, "wisconsin.csv")
-    "(d3.csv, "wyoming.csv")
+    (d3.csv, "SpeciesList.csv")
+    (d3.csv, "alabama.csv")
+    (d3.csv, "Alaska.csv")
+    (d3.csv, "arizona.csv")
+    (d3.csv, "arkansas.csv")
+    (d3.csv, "california.csv")
+    (d3.csv, "colorado.csv")
+    (d3.csv, "connecticut.csv")
+    (d3.csv, "delaware.csv")
+    (d3.csv, "florida.csv")
+    (d3.csv, "georgia.csv")
+    (d3.csv, "idaho.csv")
+    (d3.csv, "illinois.csv")
+    (d3.csv, "indiana.csv")
+    (d3.csv, "iowa.csv")
+    (d3.csv, "kansas.csv")
+    (d3.csv, "kentucky.csv")
+    (d3.csv, "louisiana.csv")
+    (d3.csv, "maine.csv")
+    (d3.csv, "maryland.csv")
+    (d3.csv, "massachusetts.csv")
+    (d3.csv, "michigan.csv")
+    (d3.csv, "Minneso.csv")
+    (d3.csv, "mississippi.csv")
+    (d3.csv, "missouri.csv")
+    (d3.csv, "montana.csv")
+    (d3.csv, "nebraska.csv")
+    (d3.csv, "nevada.csv")
+    (d3.csv, "newhampshire.csv")
+    (d3.csv, "newjersey.csv")
+    (d3.csv, "newmexico.csv")
+    (d3.csv, "newyork.csv")
+    (d3.csv, "northcarolina.csv")
+    (d3.csv, "northdakota.csv")
+    (d3.csv, "ohio.csv")
+    (d3.csv, "oklahoma.csv")
+    (d3.csv, "oregon.csv")
+    (d3.csv, "pennsylvania.csv")
+    (d3.csv, "rhodeisland.csv")
+    (d3.csv, "southcarolina.csv")
+    (d3.csv, "southdakota.csv")
+    (d3.csv, "tennessee.csv")
+    (d3.csv, "texas.csv")
+    (d3.csv, "utah.csv")
+    (d3.csv, "vermont.csv")
+    (d3.csv, "virginia.csv")
+    (d3.csv, "washington.csv")
+    (d3.csv, "westvirginia.csv")
+    (d3.csv, "wisconsin.csv")
+    (d3.csv, "wyoming.csv")
 
 
 
@@ -343,9 +343,11 @@ d3.queue()//No data for Hawaii
         //   div.transition()
         //       .duration(100)
         //       .style("opacity", .9);
-        //     var data = files;
+        //     var state = files[d.statenum];
+        //     var species = files[d.Aou];
         //
         //
+
         // })
       ;
     //   function(d){
