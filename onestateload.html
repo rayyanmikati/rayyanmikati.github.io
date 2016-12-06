@@ -138,116 +138,66 @@ var div = d3.select(".tooltip")
     "04000US28":"51",
     "04000US34":"59"
   };
-// var files = {
-//   "(d3.csv, "alabama.csv")",
-//   "(d3.csv, "Alaska.csv")",
-//   "(d3.csv, "arizona.csv")",
-//   "(d3.csv, "arkansas.csv")",
-//   "(d3.csv, "california.csv")",
-//   "(d3.csv, "colorado.csv")",
-//   "(d3.csv, "connecticut.csv")",
-//   "(d3.csv, "delaware.csv")",
-//   "(d3.csv, "florida.csv")",
-//   "(d3.csv, "georgia.csv")",
-//   "(d3.csv, "idaho.csv")",
-//   "(d3.csv, "illinois.csv")",
-//   "(d3.csv, "indiana.csv")",
-//   "(d3.csv, "iowa.csv")",
-//   "(d3.csv, "kansas.csv")",
-//   "(d3.csv, "kentucky.csv")",
-//   "(d3.csv, "louisiana.csv")",
-//   "(d3.csv, "maine.csv")",
-//   "(d3.csv, "maryland.csv")",
-//   "(d3.csv, "massachusetts.csv")",
-//   "(d3.csv, "michigan.csv")",
-//   "(d3.csv, "Minneso.csv")",
-//   "(d3.csv, "mississippi.csv")",
-//   "(d3.csv, "missouri.csv")",
-//   "(d3.csv, "montana.csv")",
-//   "(d3.csv, "nebraska.csv")",
-//   "(d3.csv, "nevada.csv")",
-//   "(d3.csv, "newhampshire.csv")",
-//   "(d3.csv, "newjersey.csv")",
-//   "(d3.csv, "newmexico.csv")",
-//   "(d3.csv, "newyork.csv")",
-//   "(d3.csv, "northcarolina.csv")",
-//   "(d3.csv, "northdakota.csv")",
-//   "(d3.csv, "ohio.csv")",
-//   "(d3.csv, "oklahoma.csv")",
-//   "(d3.csv, "oregon.csv")",
-//   "(d3.csv, "pennsylvania.csv")",
-//   "(d3.csv, "rhodeisland.csv")",
-//   "(d3.csv, "southcarolina.csv")",
-//   "(d3.csv, "southdakota.csv")",
-//   "(d3.csv, "tennessee.csv")",
-//   "(d3.csv, "texas.csv")",
-//   "(d3.csv, "utah.csv")",
-//   "(d3.csv, "vermont.csv")",
-//   "(d3.csv, "virginia.csv")",
-//   "(d3.csv, "washington.csv")",
-//   "(d3.csv, "westvirginia.csv")",
-//   "(d3.csv, "wisconsin.csv")",
-//   "(d3.csv, "wyoming.csv")",
-// }
+
 
 
 d3.queue()//No data for Hawaii
-    (d3.csv, "SpeciesList.csv")
-    (d3.csv, "alabama.csv")
-    (d3.csv, "Alaska.csv")
-    (d3.csv, "arizona.csv")
-    (d3.csv, "arkansas.csv")
-    (d3.csv, "california.csv")
-    (d3.csv, "colorado.csv")
-    (d3.csv, "connecticut.csv")
-    (d3.csv, "delaware.csv")
-    (d3.csv, "florida.csv")
-    (d3.csv, "georgia.csv")
-    (d3.csv, "idaho.csv")
-    (d3.csv, "illinois.csv")
-    (d3.csv, "indiana.csv")
-    (d3.csv, "iowa.csv")
-    (d3.csv, "kansas.csv")
-    (d3.csv, "kentucky.csv")
-    (d3.csv, "louisiana.csv")
-    (d3.csv, "maine.csv")
-    (d3.csv, "maryland.csv")
-    (d3.csv, "massachusetts.csv")
-    (d3.csv, "michigan.csv")
-    (d3.csv, "Minneso.csv")
-    (d3.csv, "mississippi.csv")
-    (d3.csv, "missouri.csv")
-    (d3.csv, "montana.csv")
-    (d3.csv, "nebraska.csv")
-    (d3.csv, "nevada.csv")
-    (d3.csv, "newhampshire.csv")
-    (d3.csv, "newjersey.csv")
-    (d3.csv, "newmexico.csv")
-    (d3.csv, "newyork.csv")
-    (d3.csv, "northcarolina.csv")
-    (d3.csv, "northdakota.csv")
-    (d3.csv, "ohio.csv")
-    (d3.csv, "oklahoma.csv")
-    (d3.csv, "oregon.csv")
-    (d3.csv, "pennsylvania.csv")
-    (d3.csv, "rhodeisland.csv")
-    (d3.csv, "southcarolina.csv")
-    (d3.csv, "southdakota.csv")
-    (d3.csv, "tennessee.csv")
-    (d3.csv, "texas.csv")
-    (d3.csv, "utah.csv")
-    (d3.csv, "vermont.csv")
-    (d3.csv, "virginia.csv")
-    (d3.csv, "washington.csv")
-    (d3.csv, "westvirginia.csv")
-    (d3.csv, "wisconsin.csv")
-    (d3.csv, "wyoming.csv")
+    .defer(d3.csv, "SpeciesList.csv")
+    .defer(d3.csv, "alabama.csv")
+    .defer(d3.csv, "Alaska.csv")
+    .defer(d3.csv, "arizona.csv")
+    .defer(d3.csv, "arkansas.csv")
+    .defer(d3.csv, "california.csv")
+    .defer(d3.csv, "colorado.csv")
+    .defer(d3.csv, "connecticut.csv")
+    .defer(d3.csv, "delaware.csv")
+    .defer(d3.csv, "florida.csv")
+    .defer(d3.csv, "georgia.csv")
+    .defer(d3.csv, "idaho.csv")
+    .defer(d3.csv, "illinois.csv")
+    .defer(d3.csv, "indiana.csv")
+    .defer(d3.csv, "iowa.csv")
+    .defer(d3.csv, "kansas.csv")
+    .defer(d3.csv, "kentucky.csv")
+    .defer(d3.csv, "louisiana.csv")
+    .defer(d3.csv, "maine.csv")
+    .defer(d3.csv, "maryland.csv")
+    .defer(d3.csv, "massachusetts.csv")
+    .defer(d3.csv, "michigan.csv")
+    .defer(d3.csv, "Minneso.csv")
+    .defer(d3.csv, "mississippi.csv")
+    .defer(d3.csv, "missouri.csv")
+    .defer(d3.csv, "montana.csv")
+    .defer(d3.csv, "nebraska.csv")
+    .defer(d3.csv, "nevada.csv")
+    .defer(d3.csv, "newhampshire.csv")
+    .defer(d3.csv, "newjersey.csv")
+    .defer(d3.csv, "newmexico.csv")
+    .defer(d3.csv, "newyork.csv")
+    .defer(d3.csv, "northcarolina.csv")
+    .defer(d3.csv, "northdakota.csv")
+    .defer(d3.csv, "ohio.csv")
+    .defer(d3.csv, "oklahoma.csv")
+    .defer(d3.csv, "oregon.csv")
+    .defer(d3.csv, "pennsylvania.csv")
+    .defer(d3.csv, "rhodeisland.csv")
+    .defer(d3.csv, "southcarolina.csv")
+    .defer(d3.csv, "southdakota.csv")
+    .defer(d3.csv, "tennessee.csv")
+    .defer(d3.csv, "texas.csv")
+    .defer(d3.csv, "utah.csv")
+    .defer(d3.csv, "vermont.csv")
+    .defer(d3.csv, "virginia.csv")
+    .defer(d3.csv, "washington.csv")
+    .defer(d3.csv, "westvirginia.csv")
+    .defer(d3.csv, "wisconsin.csv")
+    .defer(d3.csv, "wyoming.csv")
 
 
 
 
-    // ", d3.csv("arkansas.csv");
-///"(d3.request, "http://www.google.com:81")
+    // .defer, d3.csv("arkansas.csv");
+///.defer(d3.request, "http://www.google.com:81")
     .awaitAll(function(error, results) {
       if (error) throw error;
       results.forEach(function(d) {
@@ -339,16 +289,15 @@ d3.queue()//No data for Hawaii
                 .duration(00)
                 .style("opacity", 0);
         })
-        // .on("click", function(d) {
-        //   div.transition()
-        //       .duration(100)
-        //       .style("opacity", .9);
-        //     var state = files[d.statenum];
-        //     var species = files[d.Aou];
-        //
-        //
+        .on("click", function(d) {
+          div.transition()
+              .duration(100)
+              .style("opacity", .9);
+            var stateNum = path2name[d.id];
+            var data = stateData[stateNum];
+            var Title = path2title[d.id];
 
-        // })
+        })
       ;
     //   function(d){
     //   return d.id == "076" ? "green" : "#ccc";
@@ -366,7 +315,7 @@ d3.queue()//No data for Hawaii
   //
   // points.enter().append("circle")
   //   .attr("transform", function(d){
-  //     return "translate(" + proj(d.coords) + ")",;
+  //     return "translate(" + proj(d.coords) + ")";
   //   })
   //   .attr("fill", "red")
   //   .attr("r", 10);
