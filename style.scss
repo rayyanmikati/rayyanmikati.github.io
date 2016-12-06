@@ -73,3 +73,18 @@ div.tooltip {
   pointer-events: none;
   opacity: 0;
 }
+div.popup {
+  position: absolute;
+  text-align: left;
+  padding: 2px;
+  font-size: 12px;
+  font-family: "Helvetica";
+  font-weight: 400;
+  color:$accent;
+  background: $main;
+  border: 0px;
+  border-radius: 3px;
+  pointer-events: none;
+  opacity: 0;
+
+}

@@ -386,20 +386,20 @@ d3.queue()//No data for Hawaii
         //       });
         //
         //     };
-        var speciesList = results.shift();
-
-        var nestedYear = d3.nest()
-            .key(function(d, i) {
-              return d.Year;
-              // return d.Year, d.statenum;//this didn't work but why?
-            })
-            .entries(results);
-          nestedYear.forEach(function(d) {
-            d.SpeciesTotal = d3.sum(d.values, function(x, i) {
-              return x.SpeciesTotal;
-            })
-            console.log(d.key, d.SpeciesTotal)
-          })
+        // var speciesList = results.shift();
+        //
+        // var nestedYear = d3.nest()
+        //     .key(function(d, i) {
+        //       return d.Year;
+        //       // return d.Year, d.statenum;//this didn't work but why?
+        //     })
+        //     .entries(results);
+        //   nestedYear.forEach(function(d) {
+        //     d.SpeciesTotal = d3.sum(d.values, function(x, i) {
+        //       return x.SpeciesTotal;
+        //     })
+        //     console.log(d.key, d.SpeciesTotal)
+        //   })
           // draw(nestedYear);
 
 });
