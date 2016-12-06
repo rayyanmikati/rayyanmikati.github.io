@@ -1,6 +1,15 @@
 ---
 layout: default
 ---
+<div id="loader">
+<h1>  Loading...</h1>
+</div>
+
+ <div class="tooltip">
+  <h4 class="Title"></h4>
+  <h4><span class="number"></span></h4>
+</div>
+
 
   <svg></svg>
 
@@ -12,15 +21,69 @@ layout: default
 // }
 var stateData = {};
 
-var div = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
+var div = d3.select(".tooltip")
+
 
   var width = 900, height = 500;
 
   var svg = d3.select("svg")
     .attr("width", width)
     .attr("height", height);
+
+  var path2title = {
+    "04000US48":"Texas",
+    "04000US42":"Pennsylvania",
+    "04000US45":"South Carolina",
+    "04000US33":"New Hampshire",
+    "04000US15":"Hawaii",
+    "04000US16":"Idaho",
+    "04000US30":"Montana",
+    "04000US35":"New Mexico",
+    "04000US36":"New York",
+    "04000US38":"North Dakota",
+    "04000US41":"Oregon",
+    "04000US26":"Michigan",
+    "04000US39":"Ohio",
+    "04000US13":"Georgia",
+    "04000US08":"Colorado",
+    "04000US12":"Florida",
+    "04000US24":"Maryland",
+    "04000US50":"Vermont",
+    "04000US53":"Washington",
+    "04000US04":"Arizona",
+    "04000US18":"Indiana",
+    "04000US19":"Iowa",
+    "04000US20":"Kansas",
+    "04000US21":"Kentucky",
+    "04000US22":"Louisiana",
+    "04000US23":"Maine",
+    "04000US27":"Minnesota",
+    "04000US29":"Missouri",
+    "04000US31":"Nebraska",
+    "04000US44":"Rhode Island",
+    "04000US47":"Tennessee",
+    "04000US51":"Virginia",
+    "04000US55":"Wisconsin",
+    "04000US56":"Wyoming",
+    "04000US72":"Puerto Rico",
+    "04000US40":"Oklahoma",
+    "04000US02":"Alaska",
+    "04000US10":"Delaware",
+    "04000US32":"Nevada",
+    "04000US05":"Arkansas",
+    "04000US17":"Illinois",
+    "04000US06":"California",
+    "04000US11":"District of Columbia",
+    "04000US09":"Connecticut",
+    "04000US37":"North Carolina",
+    "04000US25":"Massachusetts",
+    "04000US54":"West Virginia",
+    "04000US49":"Utah",
+    "04000US01":"Alabama",
+    "04000US46":"South Dakota",
+    "04000US28":"Mississippi",
+    "04000US34":"New Jersey"
+  };
   var path2name = {
     "04000US48":"83",
     "04000US42":"72",
@@ -75,66 +138,116 @@ var div = d3.select("body").append("div")
     "04000US28":"51",
     "04000US34":"59"
   };
-
+var files = {
+  "(d3.csv, "alabama.csv")",
+  "(d3.csv, "Alaska.csv")",
+  "(d3.csv, "arizona.csv")",
+  "(d3.csv, "arkansas.csv")",
+  "(d3.csv, "california.csv")",
+  "(d3.csv, "colorado.csv")",
+  "(d3.csv, "connecticut.csv")",
+  "(d3.csv, "delaware.csv")",
+  "(d3.csv, "florida.csv")",
+  "(d3.csv, "georgia.csv")",
+  "(d3.csv, "idaho.csv")",
+  "(d3.csv, "illinois.csv")",
+  "(d3.csv, "indiana.csv")",
+  "(d3.csv, "iowa.csv")",
+  "(d3.csv, "kansas.csv")",
+  "(d3.csv, "kentucky.csv")",
+  "(d3.csv, "louisiana.csv")",
+  "(d3.csv, "maine.csv")",
+  "(d3.csv, "maryland.csv")",
+  "(d3.csv, "massachusetts.csv")",
+  "(d3.csv, "michigan.csv")",
+  "(d3.csv, "Minneso.csv")",
+  "(d3.csv, "mississippi.csv")",
+  "(d3.csv, "missouri.csv")",
+  "(d3.csv, "montana.csv")",
+  "(d3.csv, "nebraska.csv")",
+  "(d3.csv, "nevada.csv")",
+  "(d3.csv, "newhampshire.csv")",
+  "(d3.csv, "newjersey.csv")",
+  "(d3.csv, "newmexico.csv")",
+  "(d3.csv, "newyork.csv")",
+  "(d3.csv, "northcarolina.csv")",
+  "(d3.csv, "northdakota.csv")",
+  "(d3.csv, "ohio.csv")",
+  "(d3.csv, "oklahoma.csv")",
+  "(d3.csv, "oregon.csv")",
+  "(d3.csv, "pennsylvania.csv")",
+  "(d3.csv, "rhodeisland.csv")",
+  "(d3.csv, "southcarolina.csv")",
+  "(d3.csv, "southdakota.csv")",
+  "(d3.csv, "tennessee.csv")",
+  "(d3.csv, "texas.csv")",
+  "(d3.csv, "utah.csv")",
+  "(d3.csv, "vermont.csv")",
+  "(d3.csv, "virginia.csv")",
+  "(d3.csv, "washington.csv")",
+  "(d3.csv, "westvirginia.csv")",
+  "(d3.csv, "wisconsin.csv")",
+  "(d3.csv, "wyoming.csv")",
+}
 
 
 d3.queue()//No data for Hawaii
-    .defer(d3.csv, "SpeciesList.csv")
-    .defer(d3.csv, "alabama.csv")
-    .defer(d3.csv, "Alaska.csv")
-    .defer(d3.csv, "arizona.csv")
-    .defer(d3.csv, "arkansas.csv")
-    .defer(d3.csv, "california.csv")
-    .defer(d3.csv, "colorado.csv")
-    .defer(d3.csv, "connecticut.csv")
-    .defer(d3.csv, "delaware.csv")
-    .defer(d3.csv, "florida.csv")
-    .defer(d3.csv, "georgia.csv")
-    .defer(d3.csv, "idaho.csv")
-    .defer(d3.csv, "illinois.csv")
-    .defer(d3.csv, "indiana.csv")
-    .defer(d3.csv, "iowa.csv")
-    .defer(d3.csv, "kansas.csv")
-    .defer(d3.csv, "kentucky.csv")
-    .defer(d3.csv, "louisiana.csv")
-    .defer(d3.csv, "maine.csv")
-    .defer(d3.csv, "maryland.csv")
-    .defer(d3.csv, "massachusetts.csv")
-    .defer(d3.csv, "michigan.csv")
-    .defer(d3.csv, "Minneso.csv")
-    .defer(d3.csv, "mississippi.csv")
-    .defer(d3.csv, "missouri.csv")
-    .defer(d3.csv, "montana.csv")
-    .defer(d3.csv, "nebraska.csv")
-    .defer(d3.csv, "nevada.csv")
-    .defer(d3.csv, "newhampshire.csv")
-    .defer(d3.csv, "newjersey.csv")
-    .defer(d3.csv, "newmexico.csv")
-    .defer(d3.csv, "newyork.csv")
-    .defer(d3.csv, "northcarolina.csv")
-    .defer(d3.csv, "northdakota.csv")
-    .defer(d3.csv, "ohio.csv")
-    .defer(d3.csv, "oklahoma.csv")
-    .defer(d3.csv, "oregon.csv")
-    .defer(d3.csv, "pennsylvania.csv")
-    .defer(d3.csv, "rhodeisland.csv")
-    .defer(d3.csv, "southcarolina.csv")
-    .defer(d3.csv, "southdakota.csv")
-    .defer(d3.csv, "tennessee.csv")
-    .defer(d3.csv, "texas.csv")
-    .defer(d3.csv, "utah.csv")
-    .defer(d3.csv, "vermont.csv")
-    .defer(d3.csv, "virginia.csv")
-    .defer(d3.csv, "washington.csv")
-    .defer(d3.csv, "westvirginia.csv")
-    .defer(d3.csv, "wisconsin.csv")
-    .defer(d3.csv, "wyoming.csv")
+    "(d3.csv, "SpeciesList.csv")
+    "(d3.csv, "alabama.csv")
+    "(d3.csv, "Alaska.csv")
+    "(d3.csv, "arizona.csv")
+    "(d3.csv, "arkansas.csv")
+    "(d3.csv, "california.csv")
+    "(d3.csv, "colorado.csv")
+    "(d3.csv, "connecticut.csv")
+    "(d3.csv, "delaware.csv")
+    "(d3.csv, "florida.csv")
+    "(d3.csv, "georgia.csv")
+    "(d3.csv, "idaho.csv")
+    "(d3.csv, "illinois.csv")
+    "(d3.csv, "indiana.csv")
+    "(d3.csv, "iowa.csv")
+    "(d3.csv, "kansas.csv")
+    "(d3.csv, "kentucky.csv")
+    "(d3.csv, "louisiana.csv")
+    "(d3.csv, "maine.csv")
+    "(d3.csv, "maryland.csv")
+    "(d3.csv, "massachusetts.csv")
+    "(d3.csv, "michigan.csv")
+    "(d3.csv, "Minneso.csv")
+    "(d3.csv, "mississippi.csv")
+    "(d3.csv, "missouri.csv")
+    "(d3.csv, "montana.csv")
+    "(d3.csv, "nebraska.csv")
+    "(d3.csv, "nevada.csv")
+    "(d3.csv, "newhampshire.csv")
+    "(d3.csv, "newjersey.csv")
+    "(d3.csv, "newmexico.csv")
+    "(d3.csv, "newyork.csv")
+    "(d3.csv, "northcarolina.csv")
+    "(d3.csv, "northdakota.csv")
+    "(d3.csv, "ohio.csv")
+    "(d3.csv, "oklahoma.csv")
+    "(d3.csv, "oregon.csv")
+    "(d3.csv, "pennsylvania.csv")
+    "(d3.csv, "rhodeisland.csv")
+    "(d3.csv, "southcarolina.csv")
+    "(d3.csv, "southdakota.csv")
+    "(d3.csv, "tennessee.csv")
+    "(d3.csv, "texas.csv")
+    "(d3.csv, "utah.csv")
+    "(d3.csv, "vermont.csv")
+    "(d3.csv, "virginia.csv")
+    "(d3.csv, "washington.csv")
+    "(d3.csv, "westvirginia.csv")
+    "(d3.csv, "wisconsin.csv")
+    "(d3.csv, "wyoming.csv")
 
 
 
 
-    // .defer, d3.csv("arkansas.csv");
-///.defer(d3.request, "http://www.google.com:81")
+    // ", d3.csv("arkansas.csv");
+///"(d3.request, "http://www.google.com:81")
     .awaitAll(function(error, results) {
       if (error) throw error;
       results.forEach(function(d) {
@@ -166,7 +279,7 @@ d3.queue()//No data for Hawaii
         });
 
     d3.json("../states.json", function(error, data){
-
+      d3.select("#loader").remove();
     // converts Topojson to GeoJSON
     console.log(data);
     // make sure to use the right key in data.objects!
@@ -188,31 +301,53 @@ d3.queue()//No data for Hawaii
     var states = svg.selectAll("path")
       .data(featureCollection.features);
 
+
+    console.log(path2name, stateData)
+
+    var fillscale = d3.scaleLinear()
+      .domain([0,4000000])
+      .range(["#e6e6ff", "#01DCC1"]);
     // country codes: https://en.wikipedia.org/wiki/ISO_3166-1_numeric
     states.enter().append("path")
       .attr("d", path)
       .attr("stroke", "#e6e6ff")
       .attr("stroke-width", 1)
-      .attr("fill", "#01DCC1")
+      .attr("fill", function(d){
+        var stateNum = path2name[d.id];
+        var data = stateData[stateNum];
+        return fillscale(data.total);
+      })
       .on("mousemove", function(d) {
-
             div.transition()
-                .duration(200)
+                .duration(100)
                 .style("opacity", .9);
               var stateNum = path2name[d.id];
               var data = stateData[stateNum];
-              div.text(data.total)
-                .style("left", (d3.event.pageX) + "px")
-                .style("top", (d3.event.pageY - 28) + "px");
+              var Title = path2title[d.id];
+            div
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 28) + "px");
+            div.select(".Title").text(Title);
+            div.select(".number").text(data.total);
+
             // div .html(formatTime(d.date) + "<br/>"  + d.close)
             //     .style("left", (d3.event.pageX) + "px")
             //     .style("top", (d3.event.pageY - 28) + "px");
             })
         .on("mouseout", function(d) {
             div.transition()
-                .duration(500)
+                .duration(00)
                 .style("opacity", 0);
-        });
+        })
+        // .on("click", function(d) {
+        //   div.transition()
+        //       .duration(100)
+        //       .style("opacity", .9);
+        //     var data = files;
+        //
+        //
+        // })
+      ;
     //   function(d){
     //   return d.id == "076" ? "green" : "#ccc";
     // }
@@ -229,7 +364,7 @@ d3.queue()//No data for Hawaii
   //
   // points.enter().append("circle")
   //   .attr("transform", function(d){
-  //     return "translate(" + proj(d.coords) + ")";
+  //     return "translate(" + proj(d.coords) + ")",;
   //   })
   //   .attr("fill", "red")
   //   .attr("r", 10);

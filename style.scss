@@ -13,6 +13,9 @@ p{
   color:$main;
   font-size: 25px;
   font-family: "Helvetica";
+  text-align: center;
+  margin-left: 100px;
+  margin-right: 100px;
   margin-top: $nav-height + 15px;
   font-weight: 100;
 }
@@ -34,6 +37,13 @@ h3{
   font-family: "Helvetica";
   font-weight: 100;
 }
+h4{
+  color:$accent;
+  font-size: 25px;
+  font-family: "Helvetica";
+  font-weight: 400;
+  margin: 0;
+}
 #p01 {
   color:$accent;
   font-size: 25px;
@@ -52,14 +62,14 @@ path:hover {
 div.tooltip {
   position: absolute;
   text-align: center;
-  width: 60px;
-  height: 28px;
   padding: 2px;
-  font-size: 12px;
+  font-size: 25px;
   font-family: "Helvetica";
-  font-weight: 100;
+  font-weight: 400;
+  color:$accent;
   background: $main;
   border: 0px;
-  border-radius: 8px;
+  border-radius: 3px;
   pointer-events: none;
+  opacity: 0;
 }
