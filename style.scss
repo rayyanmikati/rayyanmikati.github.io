@@ -6,6 +6,11 @@ $main: #e6e6ff;
 $blue: #01DCC1;
 $accent: #FF239E;
 
+img {
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
 body {
   background-color: $bg;
 }
@@ -24,25 +29,33 @@ h1{
   font-size: 35px;
   font-family: "Helvetica";
   font-weight: 100;
+
 }
 h2{
-  color:$accent;
-  font-size: 35px;
-  font-family: "Helvetica";
-  font-weight: bold;
+  color:$main;
+  font-size: 18px;
+  font-family: monospace;;
+  text-align: left;
+  margin-left: 20px;
+  font-weight: normal;
 }
 h3{
   color:$blue;
-  font-size: 35px;
-  font-family: "Helvetica";
-  font-weight: 100;
+  font-size: 50px;
+  line-height: 70%;
+  font-family: "Impact";
+  font-weight: lighter;
+  margin-left: 120px;
+  margin-bottom: 5px;
 }
 h4{
   color:$accent;
-  font-size: 25px;
-  font-family: "Helvetica";
-  font-weight: 400;
-  margin: 0;
+  font-size: 13px;
+  font-family: monospace;
+  text-align: left;
+  font-weight: lighter;
+  margin-left: 20px;
+  line-height: 135%;
 }
 #p01 {
   color:$accent;
