@@ -34,6 +34,8 @@ layout: default
 // }
 var stateData = {};
 
+var speciesData {};
+
 var div = d3.select(".tooltip")
 
 var pop = d3.select(".popup")
@@ -245,7 +247,7 @@ d3.queue()//No data for Hawaii
             name: aouName
           }
           ;
-
+          speciesData[aouName] = AouObject
 
       });
     results.forEach(function(data, i) {
