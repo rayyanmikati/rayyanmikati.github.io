@@ -237,7 +237,7 @@ d3.queue()//No data for Hawaii
             // create a new Object that holds this data
         var stateObject = {
             state: stateNumber,
-            rows: d,
+            rows: d.sort(function(a,b) {return b.SpeciesTotal - a.SpeciesTotal}),
             total: speciesTotal
             };
 
@@ -281,7 +281,7 @@ d3.queue()//No data for Hawaii
       .data(featureCollection.features);
 
 
-    console.log(path2name, stateData)
+    // console.log(path2name, stateData)
 
     var fillscale = d3.scaleLinear()
       .domain([0,4000000])
