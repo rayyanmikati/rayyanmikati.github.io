@@ -237,7 +237,7 @@ d3.queue()//No data for Hawaii
             // create a new Object that holds this data
         var stateObject = {
             state: stateNumber,
-            rows: d.sort(function(a,b) {return b.SpeciesTotal - a.SpeciesTotal}),
+            rows: d.sort(function(a,b) {return b.SpeciesTotal - a.SpeciesTotal; }),
             total: speciesTotal
             };
 
@@ -324,15 +324,17 @@ d3.queue()//No data for Hawaii
               .style("opacity", .9);
             var data = stateData[stateNum];
             var fullDataText = "";
+            for (var i = 0; i<5; i++) {}
             // var Title = path2title[d.id];
             var birdName = speciesData[dataRow.Aou].Englsish_Common_Name;
             fullDataText+=birdName + ":" +  data,Row.SpeciesTotal + "<br/>";
+}
 
             pop
-              // .style("left", (d3.event.pageX) + "px")
-              // .style("top", (d3.event.pageY - 28) + "px");
-            pop.select(".Title").text(Title);
-            pop.select(".fulldata").text(data);
+            //   .style("left", (d3.event.pageX) + "px")
+            //   .style("top", (d3.event.pageY - 28) + "px");
+            // pop.select(".Title").text(Title);
+            pop.select(".fulldata").html(fullDataText);
   //***********okay: here's my goal: first, I need my code to run through
   // all my data and add up everything with the same Aou. Then, I need it to
   // connect that Aou with the Species name. Then I need it to print that species
