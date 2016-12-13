@@ -34,7 +34,7 @@ layout: default
 // }
 var stateData = {};
 
-// var speciesData = {};
+var speciesData = {};
 
 var div = d3.select(".tooltip")
 
@@ -211,13 +211,22 @@ d3.queue()//No data for Hawaii
     .defer(d3.csv, "wyoming.csv")
 
 
-
+////////////////////////Okay under here is where I store a bunch of info
 
     // .defer, d3.csv("arkansas.csv");
 ///.defer(d3.request, "http://www.google.com:81")
     .awaitAll(function(error, results) {
       if (error) throw error;
-      results.forEach(function(d) {
+      results.forEach(function(d,i) {
+
+        if (i == 0) {
+          speciesData = d.reduce(function(obj, b) {
+            obj[b.AOU] = b;
+            return obj;
+          }, {});
+        }
+
+        else {
 
             // each row in the data has a "statenum" key, and it's the same for each row, so we can just grab it from the first row:
         var stateNumber = d[0].statenum;
@@ -234,22 +243,11 @@ d3.queue()//No data for Hawaii
 
             // store our new stateObject variable inside of the stateData variable with the key being the state number:
             stateData[stateNumber] = stateObject;
-
-          var aouSpecies = d[0].AOU;
-
-          var aouName = d[1].English_Common_Name;
-
-          var aouStates = d[2].Aou;
-
-          var AouObject = {
-            Aou: aouStates,
-            rows: d,
-            name: aouName
           }
-          ;
-          // speciesData[aouName] = AouObject;
 
       });
+
+
     results.forEach(function(data, i) {
       if (i != 0) {
         data.forEach(function(d) {
@@ -324,12 +322,15 @@ d3.queue()//No data for Hawaii
           pop.transition()
               .duration(100)
               .style("opacity", .9);
-            var stateNum = path2name[d.id];
-            var data = aouName;
-            var Title = path2title[d.id];
+            var data = stateData[stateNum];
+            var fullDataText = "";
+            // var Title = path2title[d.id];
+            var birdName = speciesData[dataRow.Aou].Englsish_Common_Name;
+            fullDataText+=birdName + ":" +  data,Row.SpeciesTotal + "<br/>";
+
             pop
-              .style("left", (d3.event.pageX) + "px")
-              .style("top", (d3.event.pageY - 28) + "px");
+              // .style("left", (d3.event.pageX) + "px")
+              // .style("top", (d3.event.pageY - 28) + "px");
             pop.select(".Title").text(Title);
             pop.select(".fulldata").text(data);
   //***********okay: here's my goal: first, I need my code to run through
