@@ -322,7 +322,9 @@ d3.queue()//No data for Hawaii
           pop.transition()
               .duration(100)
               .style("opacity", .9);
+            var stateNum = path2name[d.id];
             var data = stateData[stateNum];
+            var Title = path2title[d.id];
             var fullDataText = "";
             for (var i = 0; i<5; i++) {
             // var Title = path2title[d.id];
