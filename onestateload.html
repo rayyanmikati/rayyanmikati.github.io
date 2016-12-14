@@ -294,7 +294,7 @@ d3.queue()//No data for Hawaii
       .attr("fill", function(d){
         var stateNum = path2name[d.id];
         var data = stateData[stateNum];
-        return fillscale(data.total);
+        return fillscale(data ? data.total : 0);
       })
       .on("mousemove", function(d) {
             div.transition()
@@ -331,10 +331,10 @@ d3.queue()//No data for Hawaii
             fullDataText+=birdName + ":" +  dataRow.SpeciesTotal + "<br/>";
 }
 
-            // pop
-            //   .style("left", (d3.event.pageX) + "px")
-            //   .style("top", (d3.event.pageY - 28) + "px");
-            // pop.select(".Title").text(Title);
+            pop
+              .style("left", (d3.event.pageX) + "px")
+              .style("top", (d3.event.pageY - 28) + "px");
+            pop.select(".Title").text(Title);
             pop.select(".fulldata").html(fullDataText);
   //***********okay: here's my goal: first, I need my code to run through
   // all my data and add up everything with the same Aou. Then, I need it to
